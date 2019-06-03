@@ -14,9 +14,44 @@
             h3 {
                 margin:10px;
             }
+            h4 {
+                margin:10px;
+            }
             p {
                 text-indent:2em;
                 margin:25px;
+            }
+            /* Style the tab */
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            /* Style the buttons that are used to open the tab content */
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            /* Change background color of buttons on hover */
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            /* Style the tab content */
+            .tabcontent {
+                display: none;
             }
         </style>
         <style type="text/css">
@@ -89,28 +124,78 @@
             <hr style="clear:left;">
 
             <h3>Weekly Log</h3>
-            <dl>
-                <dt>Week 1:</dt>
-                <dd>This week started with moving in and getting acquainted with both the Rutgers campus and everyone involved with the DIMACS REU program. After orientation, I met my mentor and got an in-depth explanation of the current state of the project I will be working on. This really helped me understand what my project was about and how I will be contributing to it. I spent much of the week reading up on graph theory and other related research. I met the other two graduate students involved with this project on Friday and got to see the newest build of Atlas. Over the weekend, I was able to play around with the build and I documented my new user experience to aid the development of the project. We had our introductory presentations today, and it was interesting to learn about all of the other student's projects.</dd>
-            <!--
-                <dt>Week 2:</dt>
-                <dd></dd>
-                <dt>Week 3:</dt>
-                <dd></dd>
-                <dt>Week 4:</dt>
-                <dd></dd>
-                <dt>Week 5:</dt>
-                <dd></dd>
-                <dt>Week 6:</dt>
-                <dd></dd>
-                <dt>Week 7:</dt>
-                <dd></dd>
-                <dt>Week 8:</dt>
-                <dd></dd>
-                <dt>Week 9:</dt>
-                <dd></dd>
-            -->
-            </dl>
+            <!-- Week Buttons -->
+            <div class="tab">
+                <button class="tablinks" onclick="openWeek(event, 'week1')">Week 1</button>
+                <button class="tablinks" onclick="openWeek(event, 'week2')">Week 2</button>
+                <button class="tablinks" onclick="openWeek(event, 'week3')">Week 3</button>
+                <button class="tablinks" onclick="openWeek(event, 'week4')">Week 4</button>
+                <button class="tablinks" onclick="openWeek(event, 'week5')">Week 5</button>
+                <button class="tablinks" onclick="openWeek(event, 'week6')">Week 6</button>
+                <button class="tablinks" onclick="openWeek(event, 'week7')">Week 7</button>
+                <button class="tablinks" onclick="openWeek(event, 'week8')">Week 8</button>
+                <button class="tablinks" onclick="openWeek(event, 'week9')">Week 9</button>
+            </div>
+
+            <!-- Week Content-->
+            <div id="week1" class="tabcontent">
+                <h4>Week 1</h4>
+                <p>This week started with moving in and getting acquainted with both the Rutgers campus and everyone involved with the DIMACS REU program. After orientation, I met my mentor and got an in-depth explanation of the current state of the project I will be working on. This really helped me understand what my project was about and how I will be contributing to it. I spent much of the week reading up on graph theory and other related research. I met the other two graduate students involved with this project on Friday and got to see the newest build of Atlas. Over the weekend, I was able to play around with the build and I documented my new user experience to aid the development of the project. We had our introductory presentations today, and it was interesting to learn about all of the other student's projects.</p>
+            </div>
+            <div id="week2" class="tabcontent">
+                <h4>Week 2</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week3" class="tabcontent">
+                <h4>Week 3</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week4" class="tabcontent">
+                <h4>Week 4</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week5" class="tabcontent">
+                <h4>Week 5</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week6" class="tabcontent">
+                <h4>Week 6</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week7" class="tabcontent">
+                <h4>Week 7</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week8" class="tabcontent">
+                <h4>Week 8</h4>
+                <p>TBD</p>
+            </div>
+            <div id="week9" class="tabcontent">
+                <h4>Week 9</h4>
+                <p>TBD</p>
+            </div>
+
+            <script>
+                function openWeek(event, weekName) {
+                    var i, tabcontent, tablinks;
+
+                    // Get all elements with class="tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    // Get all elements with class="tablinks" and remove the class "active"
+                    tablinks = document.getElementsByClassName("tablinks");
+                    for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    }
+
+                    // Show the current tab, and add an "active" class to the button that opened the tab
+                    document.getElementById(weekName).style.display = "block";
+                    event.currentTarget.className += " active";
+                }
+            </script>
 
             <hr style="clear:left;">
 
@@ -123,6 +208,7 @@
 
             <div style="text-align:center;">
                 <h3>Special thanks to NSF Grant CCF-1852215!</h3>
+                <a href="https://www.nsf.gov/" target="_blank"><img src="./pictures/nsf.png" title="National Science Foundation" alt="National Science Foundation" height="50px"></a>
             </div>
         </div>
 
