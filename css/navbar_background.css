@@ -1,6 +1,6 @@
 /* Allows the navbar to be flush with the sides of the window and handles the background image */
 body {
-    background-image: url("../pictures/navy_blue_gradient.jpeg");
+    background-image: url("../pictures/wireframe.jpeg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -10,6 +10,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 /* Add a background color to the navbar */
@@ -18,7 +19,7 @@ body {
     border-bottom: 3px solid #ddd;
     margin: 0px;
     overflow: hidden;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    /* font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
   }
   
 /* Style the tabs inside the navigation bar */
