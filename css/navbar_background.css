@@ -1,4 +1,4 @@
-/* Allows the navbar to be flush with the sides of the window and handles the background image */
+/* Allows the navbar to be flush with the sides of the window and handles the background image. */
 body {
     background-image: url("../pictures/wireframe.jpeg");
     background-repeat: no-repeat;
@@ -13,16 +13,15 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-/* Add a background color to the navbar */
+/* Adds a background color to the navbar. */
 .topnav {
     background-color: #333;
     border-bottom: 3px solid #ddd;
     margin: 0px;
     overflow: hidden;
-    /* font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
   }
   
-/* Style the tabs inside the navigation bar */
+/* Styles the tabs inside the navigation bar. */
 .topnav a {
     float: left;
     color: #ddd;
@@ -32,7 +31,7 @@ body {
     font-size: 20px;
 }
 
-/* Style my name inside the navigation bar */
+/* Styles my name inside the navigation bar. */
 .topnav p {
     float: left;
     color: #ddd;
@@ -43,12 +42,12 @@ body {
     font-size: 30px;
 }
 
-/* Change the color of tabs on hover */
+/* Changes the color of tabs on hover. */
 .topnav a:hover {
     color: white;
 }
 
-/* Add a color to the active/current tab */
+/* Adds a color to the active/current tab. */
 .topnav a.active {
     background-color: #ddd;
     color: #333;
