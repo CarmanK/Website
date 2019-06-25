@@ -12,14 +12,6 @@
 }
 
 /* Adjusts the text of the titles. */
-.title a {
-    font-size: 30px;
-    color: inherit;
-    text-decoration: none;
-    padding: 0px 5px;
-}
-
-/* Adjusts the text of the titles. */
 .title p {
     font-size: 30px;
     color: inherit;
