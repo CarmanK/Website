@@ -53,8 +53,8 @@
     padding: 0px 5px;
 }
 
-/* Adds the weekly progress content container. */
-.weekly_progress_content {
+/* Adds the progress log content container. */
+.progress_log_content {
     background-color: #ddd;
     color: #333;
     max-width: 1250px;
@@ -65,8 +65,8 @@
     padding: 7px 0px;
 }
 
-/* Adjusts the text of the weekly progress content. */
-.weekly_progress_content p {
+/* Adjusts the text of the progress log content. */
+.progress_log_content p {
     font-size: 25px;
     text-indent: 48px;
     color: inherit;
