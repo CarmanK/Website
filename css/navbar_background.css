@@ -1,0 +1,54 @@
+/* Allows the navbar to be flush with the sides of the window and handles the background image. */
+body {
+    background-image: url("../pictures/wireframe.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* Adds a background color to the navbar. */
+.topnav {
+    background-color: #333;
+    border-bottom: 3px solid #ddd;
+    margin: 0px;
+    overflow: hidden;
+  }
+  
+/* Styles the tabs inside the navigation bar. */
+.topnav a {
+    float: left;
+    color: #ddd;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* Styles my name inside the navigation bar. */
+.topnav p {
+    float: left;
+    color: #ddd;
+    text-align: center;
+    margin: 0px;
+    padding: 7px 15px;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+/* Changes the color of tabs on hover. */
+.topnav a:hover {
+    color: white;
+}
+
+/* Adds a color to the active/current tab. */
+.topnav a.active {
+    background-color: #ddd;
+    color: #333;
+}

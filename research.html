@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Kevin Carman</title>
+        <link rel="shortcut icon" href="./pictures/k_favicon.png" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="./css/navbar_background.css">
+        <link rel="stylesheet" type="text/css" href="./css/research.css">
+    </head>
+    <body>
+        <div class="topnav">
+            <p>Kevin Carman</p>
+            <a href="./index.html">About Me</a>
+            <a class="active" href="#">Research</a>
+            <a href="./experience.html">Experience</a>
+            <a href="./projects.html">Projects</a>
+        </div>
+        
+        <div class="title">
+            <p>DIMACS</p>
+        </div>
+        <div class="description">
+            <p>My undergraduate research is being conducted as a part of the [<a href="http://reu.dimacs.rutgers.edu/">DIMACS</a>] (Discrete Mathematics & Theoretical Computer Science) REU program at Rutgers University during the summer of 2019 and is sponsored by the National Science Foundation.</p>
+        </div>
+
+        <div class="title">
+            <p>Research Background</p>
+        </div>
+        <div class="description">
+            <p>Dr. James Abello's area of research, my research supervisor, revolves around graph decomposition and data visualization. The peeling algorithm, developed by Dr. Abello, iteratively strips away the vertices of a graph based on their degree, with the final output being a partition of edges represented as a set of layers. Each of these layers consists of Abello fixed points. These fixed points are subgraphs such that when the peeling algorithm is applied to them, the result is the same as the input. This algorithm inspired Atlas. Atlas is an open-source project created by Dr. Abello and his team that runs in-browser and allows users to explore and interpret large graphs in their decomposed states. There is an extension of Atlas currently being worked on called Graph Waves. This extension applies a second algorithm to further decompose the larger fixed points that Atlas struggles with into waves.</p>
+        </div>
+
+        <div class="title">
+            <p>Research Description</p>
+        </div>
+        <div class="description">
+            <p>My research consists of using natural language processing techniques to analyze the metadata associated with the vertices of a given Abello fixed point to algorithmically develop a 'Graph Story' that summarizes the data and describes the relationships of the vertices. Other goals of this research include developing a medium to present the story to the user, optimizing the story writing process, and implementing the process into Atlas and Graph Waves.</p>
+        </div>
+
+        <div class="title">
+            <p>Progress Log (Work in Progress)</p>
+        </div>
+        <div class="progress_log_content">
+            <!-- Week Buttons -->
+            <div class="tab">
+                <button class="tablinks" onclick="openWeek(event, 'week1')">Week 1</button>
+                <button class="tablinks" onclick="openWeek(event, 'week2')">Week 2</button>
+                <button class="tablinks" onclick="openWeek(event, 'week3')">Week 3</button>
+                <button class="tablinks" onclick="openWeek(event, 'week4')">Week 4</button>
+                <button class="tablinks" onclick="openWeek(event, 'week5')">Week 5</button>
+                <button class="tablinks" onclick="openWeek(event, 'week6')">Week 6</button>
+                <button class="tablinks" onclick="openWeek(event, 'week7')">Week 7</button>
+                <button class="tablinks" onclick="openWeek(event, 'week8')">Week 8</button>
+                <button class="tablinks" onclick="openWeek(event, 'week9')">Week 9</button>
+            </div>
+            <!-- Week Content -->
+            <div id="week1" class="tabcontent">
+                <p>This week consisted of many of the normal introductory type things you'd expect. I moved in and got acquainted with the Rutgers campus, my roommates, and everyone involved with the DIMACS REU program. We had orientation, then I met with my supervisor, Dr. James Abello, and he walked me through an in-depth explanation of what the project is and how I will be contributing to it. I learned how the peeling algorithm works and got to play around with the newest build of Atlas, called Graph Waves. Since I was the first user to test it out, I documented my experience and left plenty of feedback on its current state to aid them in development. I spent much of the rest of the week reading about various topics related to graph theory and information extraction.</p>
+            </div>
+            <div id="week2" class="tabcontent">
+                <p>We started the week with our introductory presentations. It was interesting to learn about all of the other student's projects. I met with my mentor again to learn more about the other half of the algorithm he developed. This second part focused on what he called graph waves and how they were generated. I spent the next few days analyzing small and common fixed point structures. The goal of this was to start thinking of how we can take these fixed points and create graph stories from them. I was then introduced to Jingbo Shang, an expert in phrase mining, and his tool AutoPhrase. AutoPhrase is a tool designed to determine and tag the important phrases in a given text with little to no human intervention. We talked about how we could utilize the functionality of this tool to create graph stories, and laid out a plan to get started with development. We focused on the RCSB protein data bank as our dataset due to its complexity and a connection that Dr. Abello has with the people that use its data. In this case, we had an example fixed point where each vertex in the graph is associated with a protein accompanied by a webpage containing information about it.</p>
+            </div>
+            <div id="week3" class="tabcontent">
+                <p>I started my work by manually combing through the webpages associated with the proteins in the graph to find connections and build a summary. The purpose of this was to get an idea of how to start doing it algorithmically and of how complex it can be. This was far from an easy task, due to my lack of knowledge in the area. I was then introduced to a graduate computer science student named Haodong. Haodong was origionally working on the graph waves project, but Dr. Abello partnered us together to work on the graph story drafter. We discussed various approaches to this project, then started working in parallel. I started off by writing a novel website scraper in Python to gather information from the protein webpages that could then be run through AutoPhrase while Haodong wrote a program to calculate the TF-IDF scores of the phrases that got tagged in the process. Haodong's program returned the top-k selected phrases from the scraped and tagged data. We decided that 10 was a fair k to start with, and that it could easily be tweaked later on if need be. My next focus was on developing with a tool called Elasticsearch to index a corpus of various PubMed abstracts. This tool would act as our own personal search engine for use later on. We indexed all of the unique data that we extracted from the websites along with roughly 20,000 PubMed abstracts. I then wrote a program to query each and every possible pair of selected phrases in our search engine and output the top-k, in this case 10 again, articles that were found in order to create a massive pool of relevant articles. Hadong then took this output and tried to calculate the BM25 score for each sentence to select the best ones, but it was too slow, so he switched to a greedy set cover algorithm instead. This left us with a proof of concept output that consisted of the least amount of sentences to cover all of the selected phrases.</p>
+            </div>
+            <div id="week4" class="tabcontent">
+                <p>Haodong, Dr. Abello, Jingbo, and myself met again to discuss the results we obtained thus far. They were very happy with our proof of concept, and we talked about various things that we could do to possibly improve the output. The output we had did not cover enough of the data in the summary like we wanted it to. The sentences also did not flow together, since they were picked throughout the data, but this is a much larger problem for later down the line. I wrote up a document showcasing our current output for Dr. Abello to send to the group of biologists so that they could give us feedback on it as well. Haodong and I went back to analyze and tokenize the extracted data again by hand. We then tweaked our k values and the thresholds within AutoPhrase to get higher quality phrases output from our process. We implemented some smaller improvements that helped slightly, but much of this week was spent researching various natural language processing and summarization techniques. Alongside this research, I spent a bit of time developing a workflow for our project, making everything scalable, and optimizing where I could. For our proof of concept, we simply ran each module individually and didn't have much organization, so I wanted to change this. I localized everything we were using and wrote a quick bash script to run everything sequentially while restricting out data files to their respective directories.</p>
+            </div>
+            <div id="week5" class="tabcontent">
+                <p>TBD</p>
+            </div>
+            <div id="week6" class="tabcontent">
+                <p>TBD</p>
+            </div>
+            <div id="week7" class="tabcontent">
+                <p>TBD</p>
+            </div>
+            <div id="week8" class="tabcontent">
+                <p>TBD</p>
+            </div>
+            <div id="week9" class="tabcontent">
+                <p>TBD</p>
+            </div>
+    
+            <script>
+                function openWeek(event, weekName) {
+                    var i, tabcontent, tablinks;
+                    
+                    // Get all elements with class = "tabcontent" and hide them
+                    tabcontent = document.getElementsByClassName("tabcontent");
+                    for(i = 0; i < tabcontent.length; i++){
+                        tabcontent[i].style.display = "none";
+                    }
+
+                    if(event.currentTarget.className === "tablinks active"){
+                        // Get all elements with class = "tablinks" and remove the class "active"
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = "tablinks";
+                        }
+                    }else{
+                        // Get all elements with class = "tablinks" and remove the class "active"
+                        tablinks = document.getElementsByClassName("tablinks");
+                        for (i = 0; i < tablinks.length; i++) {
+                            tablinks[i].className = "tablinks";
+                        }
+                        // Show the current tab, and add an "active" class to the button that opened the tab
+                        document.getElementById(weekName).style.display = "block";
+                        event.currentTarget.className += " active";
+                    }
+                }
+            </script>
+        </div>
+
+        <div class="title">
+            <p>Deliverables</p>
+        </div>
+        <div class="description">
+            <ul>
+                <li>[<a href="https://github.com/CarmanK/GraphSemantics">GitHub Repository</a>]</li>
+                <li>[<a href="./content/Graph Stories Introductory Presentation.pdf">Introductory Presentation</a>]</li>
+                <!-- <li>[<a href="">Final Presentation</a>]</li> -->
+                <!-- <li>[<a href="">Final Report</a></li>] -->
+            </ul>
+        </div>
+
+        <div class="title">
+            <p>References</p>
+        </div>
+        <div class="description">
+            <ul>
+                <li>[<a href="https://www.cs.rutgers.edu/faculty/james-abello-monedero">Dr. James Abello</a>]</li>
+                <li>[<a href="https://fredhohman.com/papers/atlas">Atlas: Local Graph Exploration in a Global Context</a>]</li>
+                <li>Graph Waves</li>
+                <ul>
+                    <li>Publication pending</li>
+                </ul>
+                <li>Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "[<a href="https://arxiv.org/abs/1702.04457">Automated Phrase Mining from Massive Text Corpora</a>]", accepted by IEEE Transactions on Knowledge and Data Engineering, Feb. 2018.</li>
+                <li>Jialu Liu, Jingbo Shang, Chi Wang, Xiang Ren and Jiawei Han, "[<a href="http://hanj.cs.illinois.edu/pdf/sigmod15_jliu.pdf">Mining Quality Phrases from Massive Text Corpora</a>]”, Proc. of 2015 ACM SIGMOD Int. Conf. on Management of Data (SIGMOD'15), Melbourne, Australia, May 2015.</li>
+                <li>Kai Hong, Ani Nenkova, "[<a href="https://www.aclweb.org/anthology/E14-1075">Improving the Estimation of Word Importance for Newsx Multi-Document Summarization</a>]", Proc. of the 14th Conf. of the European Chapter of the Association for Computational Linguistics, Gothenburg, Sweden, April 2014.</li>
+                <li>Josef Steinberger, Karel Ježek, "[<a href="http://www.cai.sk/ojs/index.php/cai/article/viewFile/37/24">Evaluation Measures for Text Summarization</a>]", Computing and Informatics, Vol. 28, March 2009.</li>
+            </ul>
+        </div>
+
+        <div class="nsf">
+            <p>Special thanks to Grant CCF-182215!</p>
+        </div>
+    </body>
+</html>
