@@ -7,6 +7,7 @@
     margin: 0px auto;
     border: 3px solid #ddd;
     overflow: auto;
+    display: flex;
 }
 
 /* Defines the metrics of the image of me. */
@@ -19,7 +20,7 @@
 
 /* Handles the about me paragraph. */
 .about_me {
-    margin: 30px 30px 0px 30px;
+    margin: 30px 30px 0px 0px;
     height: 450px;
     text-align: center;
     font-size: 25px;
