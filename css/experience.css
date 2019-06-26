@@ -1,0 +1,18 @@
+/* Progress container. */
+.progress {
+    background-color: #ddd;
+    color: #333;
+    max-width: 1250px;
+    margin: 0px auto;
+    font-size: 30px;
+    text-align: center;
+    padding: 7px 0px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.progress p {
+    font-size: 30px;
+    color: inherit;
+    margin: 0px;
+}
