@@ -11,7 +11,7 @@ About Me
 fix bar on about me page
 
 Research
-style buttons and some other stuff with the progress log section like having the page scroll when the buttons are pushed and the text opens beneath the page?
+style buttons and some other stuff with the progress log section
 
 Experience
 pretty much everything
