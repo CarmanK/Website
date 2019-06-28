@@ -7,14 +7,10 @@ I have since tried to create a cleaner, easier on the eyes, and more informative
 # TODO
 viewcount?
 
-About Me
-fix bar on about me page
-
-Research
-style buttons and some other stuff with the progress log section
-
 Experience
 pretty much everything
 
 Projects
 pretty much everything
+
+cross browser compatibility?

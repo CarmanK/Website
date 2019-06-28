@@ -89,27 +89,25 @@
     cursor: pointer;
     transition: 0.1s;
     font-size: 20px;
-    /* padding: 7px 15px; */
-    width: 129px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0px 0px 7px 0px;
+    padding: 7px 28px;
 }
 
 /* Changes the background color of the buttons on hover. */
 .tab button:hover {
-    /* background-color: #333; */
-
+    color: white;
 }
 
 /* Creates an active/current tablink class. */
 .tab button.active {
     background-color: #333;
-    color: #ddd;
+    text-decoration: underline;
 }
 
-/* Styles the tabs content. */
+/* Styles the tabs content and hides it by default. */
 .tabcontent {
     display: none;
+    padding: 7px 0px;
 }
 
 /* Adds the nsf message container. */

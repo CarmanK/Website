@@ -39,12 +39,12 @@
         </div>
 
         <div class="title">
-            <p>Progress Log (Work in Progress)</p>
+            <p>Progress Log</p>
         </div>
         <div class="progress_log_content">
             <!-- Week Buttons -->
             <div class="tab">
-                <button class="tablinks" onclick="openWeek(event, 'week1')">Week 1</button>
+                <button class="tablinks active" onclick="openWeek(event, 'week1') ">Week 1</button>
                 <button class="tablinks" onclick="openWeek(event, 'week2')">Week 2</button>
                 <button class="tablinks" onclick="openWeek(event, 'week3')">Week 3</button>
                 <button class="tablinks" onclick="openWeek(event, 'week4')">Week 4</button>
@@ -55,8 +55,8 @@
                 <button class="tablinks" onclick="openWeek(event, 'week9')">Week 9</button>
             </div>
             <!-- Week Content -->
-            <div id="week1" class="tabcontent">
-                <p>This week consisted of many of the normal introductory type things you'd expect. I moved in and got acquainted with the Rutgers campus, my roommates, and everyone involved with the DIMACS REU program. We had orientation, then I met with my supervisor, Dr. James Abello, and he walked me through an in-depth explanation of what the project is and how I will be contributing to it. I learned how the peeling algorithm works and got to play around with the newest build of Atlas, called Graph Waves. Since I was the first user to test it out, I documented my experience and left plenty of feedback on its current state to aid them in development. I spent much of the rest of the week reading about various topics related to graph theory and information extraction.</p>
+            <div id="week1" class="tabcontent" style="display:block;">
+                <p>This week consisted the normal introductory type things you'd expect. I moved in and got acquainted with the Rutgers campus, my roommates, and everyone involved with the DIMACS REU program. We had orientation, then I met with my supervisor, Dr. James Abello, and he walked me through an in-depth explanation of what the project is and how I will be contributing to it. I learned how the peeling algorithm works and got to play around with the newest build of Atlas, called Graph Waves. Since I was the first user to test it out, I documented my experience and left plenty of feedback on its current state to aid them in development. I spent much of the rest of the week reading about various topics related to graph theory and information extraction.</p>
             </div>
             <div id="week2" class="tabcontent">
                 <p>We started the week with our introductory presentations. It was interesting to learn about all of the other student's projects. I met with my mentor again to learn more about the other half of the algorithm he developed. This second part focused on what he called graph waves and how they were generated. I spent the next few days analyzing small and common fixed point structures. The goal of this was to start thinking of how we can take these fixed points and create graph stories from them. I was then introduced to Jingbo Shang, an expert in phrase mining, and his tool AutoPhrase. AutoPhrase is a tool designed to determine and tag the important phrases in a given text with little to no human intervention. We talked about how we could utilize the functionality of this tool to create graph stories, and laid out a plan to get started with development. We focused on the RCSB protein data bank as our dataset due to its complexity and a connection that Dr. Abello has with the people that use its data. In this case, we had an example fixed point where each vertex in the graph is associated with a protein accompanied by a webpage containing information about it.</p>
@@ -109,11 +109,6 @@
                         document.getElementById(weekName).style.display = "block";
                         event.currentTarget.className += " active";
                     }
-                    
-                    // window.scrollTo({
-                    //     top: 972,
-                    //     behavior: 'smooth',
-                    // });
                 }
             </script>
         </div>
