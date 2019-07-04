@@ -91,6 +91,7 @@
     font-size: 20px;
     margin: 0px 0px 7px 0px;
     padding: 7px 28px;
+    outline: none;
 }
 
 /* Changes the background color of the buttons on hover. */
