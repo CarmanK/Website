@@ -22,8 +22,8 @@
 .about_me {
     margin: 30px 30px 0px 0px;
     height: 450px;
-    text-align: center;
-    font-size: 25px;
+    text-align: justify;
+    font-size: 22px;
 }
 
 .about_me #about_me_title {
