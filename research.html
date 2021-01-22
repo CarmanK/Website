@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- This was a fun project for me to learn a little about HTML and CSS, as this was my frist time developing with them. I can not guarentee that this website will appear as designed on any browser other than Chrome on a Windows/Ubuntu Desktop. In the future, I may add a CSS reset and properly account for cross-browser compatibility. -->
+<!-- This was my first ever project developing with HTML and CSS. I can not guarantee that this website will appear as designed on any browser other than Chrome on a Windows/Ubuntu Desktop on a 1440p monitor. In the future, I may take the time to rewrite this website using web components. -->
 <html lang="en-US">
     <head>
         <title>Kevin Carman</title>
@@ -29,133 +29,134 @@
             <p>Kevin Carman</p>
             <a href="./index.html">About Me</a>
             <a class="active" href="#">Research</a>
-            <a href="./experience.html">Experience</a>
-            <a href="./projects.html">Projects</a>
+            <!-- <a href="./experience.html">Experience</a> -->
+            <!-- <a href="./projects.html">Projects</a> -->
         </div>
+        <div class="scrollable-content">
+            <div class="title">
+                <p>DIMACS</p>
+            </div>
+            <div class="description">
+                <p>My undergraduate research was conducted as a part of the [<a href="http://reu.dimacs.rutgers.edu/">DIMACS</a>] (Discrete Mathematics & Theoretical Computer Science) REU program at Rutgers University during the summer of 2019 and was sponsored by the National Science Foundation.</p>
+            </div>
+
+            <div class="title">
+                <p>Research Background</p>
+            </div>
+            <div class="description">
+                <p>Dr. James Abello's area of research, my research supervisor, revolves around graph decomposition and data visualization. The peeling algorithm, developed by Dr. Abello, iteratively strips away the vertices of a graph based on their degree, with the final output being a partition of edges represented as a set of layers. Each of these layers consists of Abello fixed points. These fixed points are subgraphs such that when the peeling algorithm is applied to them, the result is the same as the input. This algorithm inspired Atlas. Atlas is an open-source project created by Dr. Abello and his team that runs in-browser and allows users to explore and interpret large graphs in their decomposed states. There is an extension of Atlas currently being worked on called Graph Waves. This extension applies a second algorithm to further decompose the larger fixed points that Atlas struggles with into waves.</p>
+            </div>
+
+            <div class="title">
+                <p>Abstract</p>
+            </div>
+            <div class="description">
+                <p>Graphs are everywhere and are growing increasingly compact with data. Understanding the data found within requires a summarization process to dwindle the information down to a human digestible amount. When summarizing text, translating how humans build connections and realize the semantic meaning of phrases to a computer is far from trivial. Some methods involve computing scores for each word based on how often they occur in a given text and computing word vectors to determine similarity between words. However, none of these processes by themselves work well to accurately summarize text. The result of my process shows that combining techniques can produce promising summarized representations of information. These results demonstrate the potential that finding the perfect combination of techniques has. I anticipate my process to be a starting point for more sophisticated combinations of methods to develop.</p>
+            </div>
+
+            <div class="title">
+                <p>Progress Log</p>
+            </div>
+            <div class="progress_log_content">
+                <!-- Week Buttons -->
+                <div class="tab">
+                    <button class="tab-links active" onclick="openWeek(event, 'week1') ">Week 1</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week2')">Week 2</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week3')">Week 3</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week4')">Week 4</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week5')">Week 5</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week6')">Week 6</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week7')">Week 7</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week8')">Week 8</button>
+                    <button class="tab-links" onclick="openWeek(event, 'week9')">Week 9</button>
+                </div>
+                <!-- Week Content -->
+                <div id="week1" class="tab-content" style="display:block;">
+                    <p>This week consisted the normal introductory type things you'd expect. I moved in and got acquainted with the Rutgers campus, my roommates, and everyone involved with the DIMACS REU program. We had orientation, then I met with my supervisor, Dr. James Abello, and he walked me through an in-depth explanation of what the project is and how I will be contributing to it. I learned how the peeling algorithm works and got to play around with the newest build of Atlas, called Graph Waves. Since I was the first user to test it out, I documented my experience and left plenty of feedback on its current state to aid them in development. I spent much of the rest of the week reading about various topics related to graph theory and information extraction.</p>
+                </div>
+                <div id="week2" class="tab-content">
+                    <p>We started the week with our introductory presentations. It was interesting to learn about all of the other student's projects. I met with my mentor again to learn more about the other half of the algorithm he developed. This second part focused on what he called graph waves and how they were generated. I spent the next few days analyzing small and common fixed point structures. The goal of this was to start thinking of how we can take these fixed points and create graph stories from them. I was then introduced to Jingbo Shang, an expert in phrase mining, and his tool AutoPhrase. AutoPhrase is a tool designed to determine and tag the important phrases in a given text with little to no human intervention. We talked about how we could utilize the functionality of this tool to create graph stories, and laid out a plan to get started with development. We focused on the RCSB protein data bank as our data set due to its complexity and a connection that Dr. Abello has with the people that use its data. In this case, we had an example fixed point where each vertex in the graph is associated with a protein accompanied by a webpage containing information about it.</p>
+                </div>
+                <div id="week3" class="tab-content">
+                    <p>I started my work by manually combing through the webpages associated with the proteins in the graph to find connections and build a summary. The purpose of this was to get an idea of how to start doing it algorithmically and of how complex it can be. This was far from an easy task, due to my lack of knowledge in the area. I was then introduced to a graduate computer science student named Haodong. Haodong was originally working on the graph waves project, but Dr. Abello partnered us together to work on the graph story drafter. We discussed various approaches to this project, then started working in parallel. I started off by writing a novel website scraper in Python to gather information from the protein webpages that could then be run through AutoPhrase while Haodong wrote a program to calculate the TF-IDF scores of the phrases that got tagged in the process. Haodong's program returned the top-k selected phrases from the scraped and tagged data. We decided that 10 was a fair k to start with, and that it could easily be tweaked later on if need be. My next focus was on developing with a tool called Elasticsearch to index a corpus of various PubMed abstracts. This tool would act as our own personal search engine for use later on. We indexed all of the unique data that we extracted from the websites along with roughly 20,000 PubMed abstracts. I then wrote a program to query each and every possible pair of selected phrases in our search engine and output the top-k, in this case 10 again, articles that were found in order to create a massive pool of relevant articles. Haodong then took this output and tried to calculate the BM25 score for each sentence to select the best ones, but it was too slow, so he switched to a greedy set cover algorithm instead. This left us with a proof of concept output that consisted of the least amount of sentences to cover all of the selected phrases.</p>
+                </div>
+                <div id="week4" class="tab-content">
+                    <p>Haodong, Dr. Abello, Jingbo, and myself met again to discuss the results we obtained thus far. They were very happy with our proof of concept, and we talked about various things that we could do to possibly improve the output. The output we had did not cover enough of the data in the summary like we wanted it to. The sentences also did not flow together, since they were picked throughout the data, but this is a much larger problem for later down the line. I wrote up a document showcasing our current output for Dr. Abello to send to the group of biologists so that they could give us feedback on it as well. Haodong and I went back to analyze and tokenize the extracted data again by hand. We then tweaked our k values and the thresholds within AutoPhrase to get higher quality phrases output from our process. We implemented some smaller improvements that helped slightly, but much of this week was spent researching various natural language processing and summarization techniques. Alongside this research, I spent a bit of time developing a workflow for our project, making everything scalable, and optimizing where I could. For our proof of concept, we simply ran each module individually and didn't have much organization, so I wanted to change this. I localized everything we were using and wrote a quick bash script to run everything sequentially while restricting out data files to their respective directories.</p>
+                </div>
+                <div id="week5" class="tab-content">
+                    <p>This week was a bit different than the previous weeks. Less work was able to be done due to me attending a three day workshop on optimization of distance geometry held by DIMACS. The workshop was not directly related to my research, but it seemed interesting, so I wanted to take advantage of the opportunity. Aside from the workshop, Haodong and I decided to work in parallel. I turned my focus to the phrase selection process, while he focused on the summary generating process. I also decided that we should switch to a data set that would be a bit easier to understand compared to the protein data set. This new data set pertains to patent citations. Each vertex is a patent and each edge is a citation linking the two. Using this data set, we could more easily understand our selected phrases and generated summaries. I started by combing through the various fixed points to find one small and interesting enough to work with for a proof of concept. I extracted the abstracts from each of the vertices into a spreadsheet to be analyzed. I wanted to create a baseline to compare our current phrase selection and summary generating process to in the future after improvements. I first summarized the abstracts by hand and selected what I thought was the most summarizing sentence in the abstract. Then, I ran the abstracts through our process with various different parameters and noted the phrases selected and summaries generated. Next, I did the same with a tool called gensim, which also aims to build a summary from a text, to compare our process to something that already exists. Lastly, I evaluated the phrases selected and summary generated for each section to see where we currently stand. The results showed that the summaries of both gensim and our process were mediocre at best, but that our process already seemed to be selecting more important phrases than gensim. I then ran this same test but with grouping the vertices by layers and also then by the entire fixed point and got similar results.</p>
+                </div>
+                <div id="week6" class="tab-content">
+                    <p>I started this week off with implementing some small improvements to the phrase selection process along with one major improvement. The major improvement was to utilize a word stemming algorithm to more appropriately calculate the TF-IDF score of a single word that may have many variations. Previously, a word like 'comb' would not be related to 'combs' during the calculation, but utilizing a stemming algorithm, 'comb', 'combs', 'combing', 'combed', etc. would all be combined to the single word 'comb' and calculated as if they were all one word. I chose to implement the Porter stemming algorithm since it did exactly what I was looking for and has a convenient library for Python. The results of the improved phrase selection process seem promising so far, but still need a little bit of tweaking and have not been quantitatively evaluated against our baseline data yet. While working on implementing the stemming algorithm, I came up with the idea to relate Venn diagrams to our summary generating process. My idea was to recursively create pools from the various intersections of sentences that contain our selected phrases, and then select the best sentences based on a covering hierarchy. Haodong liked this idea and used a brute force method to quickly generate results with this idea. With some refinement to the hierarchy, I believe this method could prove to be effective and efficient, but we are still in the process of determining if it is something we should pursue instead of our other methods. Lastly, we met with Jingbo again and discussed our progress and plans for the week. He suggested that I look into a word embedding process called word2vec and decide if it would be effective in the phrase selection process.</p>
+                </div>
+                <div id="week7" class="tab-content">
+                    <p>The goal of this week was to learn about word embedding and how this could be put to use in the phrase selection process. After some minor improvements to the phrase selection process, I implemented some word embedding functionality using a library called word2vec. I came up with some ideas on how this implementation could influence the rest of our process and finally settled on using the word vectors to find similar phrases to the top-k selected phrases. These similar words can then be used by our sentence selecting process to cluster similar phrases together in order to focus on covering a more diverse range of sentences. After everything was implemented, the proof of concept seemed to work well, but we knew that our training corpus would have to be much larger for it to work effectively. At this point, I had to switch my focus to preparing for my final presentation, which was given on Friday. The presentation went well and can be found in the deliverables section. As expected, I found many of the other student's presentations very interesting and was excited to see their progress throughout the last 7 weeks. As the end of the program approaches, I know that these next two weeks will be very busy.</p>
+                </div>
+                <div id="week8" class="tab-content">
+                    <p>My laptop upgrades came on Monday, and I decided to completely reinstall Windows and Ubuntu because they both were having tons of issues. This took much longer than anticipated due to Ubuntu not liking Nvidia drivers, but after many hours, everything is running much smoother. I then turned my focus to figuring out the best way to obtain large amounts of patent data, specifically their titles and abstracts. This turned out to be much harder than it probably should be. In total, our data set contains 3.7 million unique patent IDs. With these patent IDs, there are a few websites that you can query patent information from with the ID. The problem is, many of the older patents don't have information about them and many of the patents can only be found on certain websites. I started looking into Google Patents, but could not find a usable API for it. I then tried about 5 different APIs, and a couple of python packages and wrapper classes, to try to obtain the patent data, but all of these attempts had little success. My best results were slow and inconsistent. As a last ditch effort, I injected the patent IDs into get requests to Google Patents to see how that worked. The results were the best so far, but still slow and less consistent than I prefer. I was only able to gather about 2MB of data per hour at first, so I rewrote the script to run on 16 threads, and offloaded it to the Rutgers CS department server. Here, I was able to get around 14MB of data per hour. We decided that because of the time constraint of me leaving, we should stop it from scraping data by Sunday and use the data we gathered. While this was running, I was able to attend the DIMACS hosted workshop in computation complexity which was interesting. On Sunday night, I copied from the sever about 400MB worth of patent data, much less than I hoped, but still usable. I spent the next 10 or so hours training the AutoPhrase model, training the word2vec model, and uploading the data to elasticsearch. With this new word2vec model, I also had to completely change how word2vec was implemented in our phrase selecting process, but it was all worth it. I was so excited to see that after the first test run, the results I got back were incredible. Not only were the phrases spot on, but the word vectors were borderline perfect as well. One week to go!</p>
+                </div>
+                <div id="week9" class="tab-content">
+                    <p>This last week was by far the busiest, as expected. It was now crunch time for the project and on top of that, I had to devote a great deal of time towards my research paper. In the beginning of the week, I spent some time fixing an oversight in the phrase miner, cleaning up the spreadsheet containing the testing data, and fixing bugs in the sentence miner. I also decided to try skipping over the elasticsearch step in our process to see if it obtained better results, which it did. After showing Dr. Abello, Jingbo, and Haodong the results, I quickly reorganized everything so that the titles and the abstracts were now scraped and stored in separate files. The titles are now where the phrases are mined from, while the abstracts are where the sentences are mined from. This gave us extremely promising results with the specific data we were using, so we expanded our testing to other areas within the dataset as well. These other areas varied in size and topic, and for the most part, the process performed well. As I knew my time working here was dwindling, I asked to meet with Dr. Abello one on one to talk about graduate school. I had many questions and concerns, which he did an excellent job answering and the meeting was very beneficial overall. I have previously talked with Haodong about graduate school from his perspective, since he is currently a masters student, and got very helpful information as well. After my meeting, I had to completely focus on my research paper in order to finish it in time. I was so relieved when I finally finished it and am very happy with how it turned out. I spent the last of my time on Thursday organizing the repository for the project and moved out Friday. Thank you DIMACS for that incredible experience!</p>
+                </div>
         
-        <div class="title">
-            <p>DIMACS</p>
-        </div>
-        <div class="description">
-            <p>My undergraduate research was conducted as a part of the [<a href="http://reu.dimacs.rutgers.edu/">DIMACS</a>] (Discrete Mathematics & Theoretical Computer Science) REU program at Rutgers University during the summer of 2019 and was sponsored by the National Science Foundation.</p>
-        </div>
-
-        <div class="title">
-            <p>Research Background</p>
-        </div>
-        <div class="description">
-            <p>Dr. James Abello's area of research, my research supervisor, revolves around graph decomposition and data visualization. The peeling algorithm, developed by Dr. Abello, iteratively strips away the vertices of a graph based on their degree, with the final output being a partition of edges represented as a set of layers. Each of these layers consists of Abello fixed points. These fixed points are subgraphs such that when the peeling algorithm is applied to them, the result is the same as the input. This algorithm inspired Atlas. Atlas is an open-source project created by Dr. Abello and his team that runs in-browser and allows users to explore and interpret large graphs in their decomposed states. There is an extension of Atlas currently being worked on called Graph Waves. This extension applies a second algorithm to further decompose the larger fixed points that Atlas struggles with into waves.</p>
-        </div>
-
-        <div class="title">
-            <p>Abstract</p>
-        </div>
-        <div class="description">
-            <p>Graphs are everywhere and are growing increasingly compact with data. Understanding the data found within requires a summarization process to dwindle the information down to a human digestible amount. When summarizing text, translating how humans build connections and realize the semantic meaning of phrases to a computer is far from trivial. Some methods involve computing scores for each word based on how often they occur in a given text and computing word vectors to determine similarity between words. However, none of these processes by themselves work well to accurately summarize text. The result of my process shows that combining techniques can produce promising summarized representations of information. These results demonstrate the potential that finding the perfect combination of techniques has. I anticipate my process to be a starting point for more sophisticated combinations of methods to develop.</p>
-        </div>
-
-        <div class="title">
-            <p>Progress Log</p>
-        </div>
-        <div class="progress_log_content">
-            <!-- Week Buttons -->
-            <div class="tab">
-                <button class="tablinks active" onclick="openWeek(event, 'week1') ">Week 1</button>
-                <button class="tablinks" onclick="openWeek(event, 'week2')">Week 2</button>
-                <button class="tablinks" onclick="openWeek(event, 'week3')">Week 3</button>
-                <button class="tablinks" onclick="openWeek(event, 'week4')">Week 4</button>
-                <button class="tablinks" onclick="openWeek(event, 'week5')">Week 5</button>
-                <button class="tablinks" onclick="openWeek(event, 'week6')">Week 6</button>
-                <button class="tablinks" onclick="openWeek(event, 'week7')">Week 7</button>
-                <button class="tablinks" onclick="openWeek(event, 'week8')">Week 8</button>
-                <button class="tablinks" onclick="openWeek(event, 'week9')">Week 9</button>
-            </div>
-            <!-- Week Content -->
-            <div id="week1" class="tabcontent" style="display:block;">
-                <p>This week consisted the normal introductory type things you'd expect. I moved in and got acquainted with the Rutgers campus, my roommates, and everyone involved with the DIMACS REU program. We had orientation, then I met with my supervisor, Dr. James Abello, and he walked me through an in-depth explanation of what the project is and how I will be contributing to it. I learned how the peeling algorithm works and got to play around with the newest build of Atlas, called Graph Waves. Since I was the first user to test it out, I documented my experience and left plenty of feedback on its current state to aid them in development. I spent much of the rest of the week reading about various topics related to graph theory and information extraction.</p>
-            </div>
-            <div id="week2" class="tabcontent">
-                <p>We started the week with our introductory presentations. It was interesting to learn about all of the other student's projects. I met with my mentor again to learn more about the other half of the algorithm he developed. This second part focused on what he called graph waves and how they were generated. I spent the next few days analyzing small and common fixed point structures. The goal of this was to start thinking of how we can take these fixed points and create graph stories from them. I was then introduced to Jingbo Shang, an expert in phrase mining, and his tool AutoPhrase. AutoPhrase is a tool designed to determine and tag the important phrases in a given text with little to no human intervention. We talked about how we could utilize the functionality of this tool to create graph stories, and laid out a plan to get started with development. We focused on the RCSB protein data bank as our data set due to its complexity and a connection that Dr. Abello has with the people that use its data. In this case, we had an example fixed point where each vertex in the graph is associated with a protein accompanied by a webpage containing information about it.</p>
-            </div>
-            <div id="week3" class="tabcontent">
-                <p>I started my work by manually combing through the webpages associated with the proteins in the graph to find connections and build a summary. The purpose of this was to get an idea of how to start doing it algorithmically and of how complex it can be. This was far from an easy task, due to my lack of knowledge in the area. I was then introduced to a graduate computer science student named Haodong. Haodong was origionally working on the graph waves project, but Dr. Abello partnered us together to work on the graph story drafter. We discussed various approaches to this project, then started working in parallel. I started off by writing a novel website scraper in Python to gather information from the protein webpages that could then be run through AutoPhrase while Haodong wrote a program to calculate the TF-IDF scores of the phrases that got tagged in the process. Haodong's program returned the top-k selected phrases from the scraped and tagged data. We decided that 10 was a fair k to start with, and that it could easily be tweaked later on if need be. My next focus was on developing with a tool called Elasticsearch to index a corpus of various PubMed abstracts. This tool would act as our own personal search engine for use later on. We indexed all of the unique data that we extracted from the websites along with roughly 20,000 PubMed abstracts. I then wrote a program to query each and every possible pair of selected phrases in our search engine and output the top-k, in this case 10 again, articles that were found in order to create a massive pool of relevant articles. Hadong then took this output and tried to calculate the BM25 score for each sentence to select the best ones, but it was too slow, so he switched to a greedy set cover algorithm instead. This left us with a proof of concept output that consisted of the least amount of sentences to cover all of the selected phrases.</p>
-            </div>
-            <div id="week4" class="tabcontent">
-                <p>Haodong, Dr. Abello, Jingbo, and myself met again to discuss the results we obtained thus far. They were very happy with our proof of concept, and we talked about various things that we could do to possibly improve the output. The output we had did not cover enough of the data in the summary like we wanted it to. The sentences also did not flow together, since they were picked throughout the data, but this is a much larger problem for later down the line. I wrote up a document showcasing our current output for Dr. Abello to send to the group of biologists so that they could give us feedback on it as well. Haodong and I went back to analyze and tokenize the extracted data again by hand. We then tweaked our k values and the thresholds within AutoPhrase to get higher quality phrases output from our process. We implemented some smaller improvements that helped slightly, but much of this week was spent researching various natural language processing and summarization techniques. Alongside this research, I spent a bit of time developing a workflow for our project, making everything scalable, and optimizing where I could. For our proof of concept, we simply ran each module individually and didn't have much organization, so I wanted to change this. I localized everything we were using and wrote a quick bash script to run everything sequentially while restricting out data files to their respective directories.</p>
-            </div>
-            <div id="week5" class="tabcontent">
-                <p>This week was a bit different than the previous weeks. Less work was able to be done due to me attending a three day workshop on optimization of distance geometry held by DIMACS. The workshop was not directly related to my research, but it seemed interesting, so I wanted to take advantage of the opportunity. Aside from the workshop, Haodong and I decided to work in parallel. I turned my focus to the phrase selection process, while he focused on the summary generating process. I also decided that we should switch to a data set that would be a bit easier to understand compared to the protein data set. This new data set pertains to patent citations. Each vertex is a patent and each edge is a citation linking the two. Using this data set, we could more easily understand our selected phrases and generated summaries. I started by combing through the various fixed points to find one small and interesting enough to work with for a proof of concept. I extracted the abstracts from each of the vertices into a spreadsheet to be analyzed. I wanted to create a baseline to compare our current phrase selection and summary generating process to in the future after improvements. I first summarized the abstracts by hand and selected what I thought was the most summarizing sentence in the abstract. Then, I ran the abstracts through our process with various different parameters and noted the phrases selected and summaries generated. Next, I did the same with a tool called gensim, which also aims to build a summary from a text, to compare our process to something that already exists. Lastly, I evaluated the phrases selected and summary generated for each section to see where we currently stand. The results showed that the summaries of both gensim and our process were mediocre at best, but that our process already seemed to be selecting more important phrases than gensim. I then ran this same test but with grouping the vertices by layers and also then by the entire fixed point and got similar results.</p>
-            </div>
-            <div id="week6" class="tabcontent">
-                <p>I started this week off with implementing some small improvements to the phrase selection process along with one major improvement. The major improvement was to utilize a word stemming algorithm to more appropriately calculate the TF-IDF score of a single word that may have many variations. Previously, a word like 'comb' would not be related to 'combs' during the calculation, but utilizing a stemming algorithm, 'comb', 'combs', 'combing', 'combed', etc. would all be combined to the single word 'comb' and calculated as if they were all one word. I chose to implement the Porter stemming algorithm since it did exactly what I was looking for and has a convienent library for Python. The results of the improved phrase selection process seem promising so far, but still need a little bit of tweaking and have not been quantitatively evaluated against our baseline data yet. While working on implementing the stemming algorithm, I came up with the idea to relate Venn diagrams to our summary generating process. My idea was to recursively create pools from the various intersections of sentences that contain our selected phrases, and then select the best sentences based on a covering hierarchy. Haodong liked this idea and used a brute force method to quickly generate results with this idea. With some refinement to the hierarchy, I believe this method could prove to be effective and efficient, but we are still in the process of determining if it is something we should pursue instead of our other methods. Laslty, we met with Jingbo again and discussed our progress and plans for the week. He suggested that I look into a word embedding process called word2vec and decide if it would be effective in the phrase selection process.</p>
-            </div>
-            <div id="week7" class="tabcontent">
-                <p>The goal of this week was to learn about word embedding and how this could be put to use in the phrase selection process. After some minor improvements to the phrase selection process, I implemented some word embedding functionality using a library called word2vec. I came up with some ideas on how this implementation could influence the rest of our process and finally settled on using the word vectors to find similar phrases to the top-k selected phrases. These similar words can then be used by our sentence selecting process to cluster similar phrases together in order to focus on covering a more diverse range of sentences. After everything was implemented, the proof of concept seemed to work well, but we knew that our training corpus would have to be much larger for it to work effectively. At this point, I had to switch my focus to preparing for my final presentation, which was given on Friday. The presentation went well and can be found in the deliverables section. As expected, I found many of the other student's presentations very interesting and was excited to see their progress throughout the last 7 weeks. As the end of the program approaches, I know that these next two weeks will be very busy.</p>
-            </div>
-            <div id="week8" class="tabcontent">
-                <p>My laptop upgrades came on Monday, and I decided to completely reinstall Windows and Ubuntu because they both were having tons of issues. This took much longer than anticipated due to Ubuntu not liking Nvidia drivers, but after many hours, everything is running much smoother. I then turned my focus to figuring out the best way to obtain large amounts of patent data, specifically their titles and abstracts. This turned out to be much harder than it probably should be. In total, our data set contains 3.7 million unique patent IDs. With these patent IDs, there are a few websites that you can query patent information from with the ID. The problem is, many of the older patents don't have information about them and many of the patents can only be found on certain websites. I started looking into Google Patents, but could not find a usable API for it. I then tried about 5 different APIs, and a couple of python packages and wrapper classes, to try to obtain the patent data, but all of these attempts had little success. My best results were slow and inconsistent. As a last ditch effort, I injected the patent IDs into get requests to Google Patents to see how that worked. The results were the best so far, but still slow and less consistent than I prefer. I was only able to gather about 2MB of data per hour at first, so I rewrote the script to run on 16 threads, and offloaded it to the Rutgers CS department server. Here, I was able to get around 14MB of data per hour. We decided that because of the time constraint of me leaving, we should stop it from scraping data by Sunday and use the data we gathered. While this was running, I was able to attend the DIMACS hosted workshop in computation complexity which was interesting. On Sunday night, I copied from the sever about 400MB worth of patent data, much less than I hoped, but still usable. I spent the next 10 or so hours training the AutoPhrase model, training the word2vec model, and uploading the data to elasticsearch. With this new word2vec model, I also had to completely change how word2vec was implemented in our phrase selecting process, but it was all worth it. I was so excited to see that after the first test run, the results I got back were incredible. Not only were the phrases spot on, but the word vectors were borderline perfect as well. One week to go!</p>
-            </div>
-            <div id="week9" class="tabcontent">
-                <p>This last week was by far the busiest, as expected. It was now crunch time for the project and on top of that, I had to devote a great deal of time towards my research paper. In the beginning of the week, I spent some time fixing an oversight in the phrase miner, cleaning up the spreadsheet containing the testing data, and fixing bugs in the sentence miner. I also decided to try skipping over the elasticsearch step in our process to see if it obtained better results, which it did. After showing Dr. Abello, Jingbo, and Haodong the results, I quickly reorganized everything so that the titles and the abstracts were now scraped and stored in separate files. The titles are now where the phrases are mined from, while the abstracts are where the sentences are mined from. This gave us extremely promising results with the specifc data we were using, so we expanded our testing to other areas within the dataset as well. These other areas varied in size and topic, and for the most part, the process performed well. As I knew my time working here was dwindling, I asked to meet with Dr. Abello one on one to talk about graduate school. I had many questions and concerns, which he did an excelent job answering and the meeting was very beneficial overall. I have previously talked with Haodong about graduate school from his perspective, since he is currently a masters student, and got very helpful information as well. After my meeting, I had to completely focus on my research paper in order to finish it in time. I was so relieved when I finally finished it and am very happy with how it turned out. I spent the last of my time on Thursday organizing the repository for the project and moved out Friday. Thank you DIMACS for that incredible experience!</p>
-            </div>
-    
-            <script>
-                function openWeek(event, weekName) {
-                    var i, tabcontent, tablinks;
-                    
-                    // Get all elements with class = "tabcontent" and hide them
-                    tabcontent = document.getElementsByClassName("tabcontent");
-                    for(i = 0; i < tabcontent.length; i++){
-                        tabcontent[i].style.display = "none";
-                    }
-
-                    if(event.currentTarget.className === "tablinks active"){
-                        // Get all elements with class = "tablinks" and remove the class "active"
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = "tablinks";
+                <script>
+                    function openWeek(event, weekName) {
+                        let i, tabContent, tabLinks;
+                        
+                        // Get all elements with class = "tab-content" and hide them
+                        tabContent = document.getElementsByClassName("tab-content");
+                        for(i = 0; i < tabContent.length; i++){
+                            tabContent[i].style.display = "none";
                         }
-                    }else{
-                        // Get all elements with class = "tablinks" and remove the class "active"
-                        tablinks = document.getElementsByClassName("tablinks");
-                        for (i = 0; i < tablinks.length; i++) {
-                            tablinks[i].className = "tablinks";
+
+                        if(event.currentTarget.className === "tab-links active"){
+                            // Get all elements with class = "tab-links" and remove the class "active"
+                            tabLinks = document.getElementsByClassName("tab-links");
+                            for (i = 0; i < tabLinks.length; i++) {
+                                tabLinks[i].className = "tab-links";
+                            }
+                        }else{
+                            // Get all elements with class = "tab-links" and remove the class "active"
+                            tabLinks = document.getElementsByClassName("tab-links");
+                            for (i = 0; i < tabLinks.length; i++) {
+                                tabLinks[i].className = "tab-links";
+                            }
+                            // Show the current tab, and add an "active" class to the button that opened the tab
+                            document.getElementById(weekName).style.display = "block";
+                            event.currentTarget.className += " active";
                         }
-                        // Show the current tab, and add an "active" class to the button that opened the tab
-                        document.getElementById(weekName).style.display = "block";
-                        event.currentTarget.className += " active";
                     }
-                }
-            </script>
-        </div>
+                </script>
+            </div>
 
-        <div class="title">
-            <p>Deliverables</p>
-        </div>
-        <div class="description">
-            <ul>
-                <li>[<a href="https://github.com/CarmanK/GraphSemantics">GitHub Repository</a>]</li>
-                <li>[<a href="./content/Graph Stories.pdf">Final Presentation</a>]</li>
-                <li>[<a href="./content/Kevin_Carman_Research_Paper.pdf">Research Paper</a>]</li>
-            </ul>
-        </div>
+            <div class="title">
+                <p>Deliverables</p>
+            </div>
+            <div class="description">
+                <ul>
+                    <li>[<a href="https://github.com/CarmanK/GraphSemantics">GitHub Repository</a>]</li>
+                    <li>[<a href="./content/Graph Stories.pdf">Final Presentation</a>]</li>
+                    <li>[<a href="./content/Kevin_Carman_Research_Paper.pdf">Research Paper</a>]</li>
+                </ul>
+            </div>
 
-        <div class="title">
-            <p>References</p>
-        </div>
-        <div class="description">
-            <ul>
-                <li>James Abello, Fred Hohman, Varun Bezzam, Duen Horng Chau,"[<a href = "https://fredhohman.com/papers/atlas">Atlas: Local Graph Exploration in a Global Context</a>],” in Proceedings of the International Conference on Intelligent User Interfaces, ACM 2019.</li>
-                <li>“Graph Waves, Part I, J. Abello, Dan, Sean, Qi”, submitted for publication to IEEE Information Visualization Conference, Infovis 2019.</li>
-                <li>Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "[<a href="https://arxiv.org/abs/1702.04457">Automated Phrase Mining from Massive Text Corpora</a>]," accepted by IEEE Transactions on Knowledge and Data Engineering, Feb. 2018.</li>
-                <li>Jialu Liu, Jingbo Shang, Chi Wang, Xiang Ren and Jiawei Han, "[<a href="http://hanj.cs.illinois.edu/pdf/sigmod15_jliu.pdf">Mining Quality Phrases from Massive Text Corpora</a>],” Proc. of 2015 ACM SIGMOD Int. Conf. on Management of Data (SIGMOD'15), Melbourne, Australia, May 2015.</li>
-                <li>Kai Hong, Ani Nenkova, "[<a href="https://www.aclweb.org/anthology/E14-1075">Improving the Estimation of Word Importance for News Multi-Document Summarization</a>]," Proc. of the 14th Conf. of the European Chapter of the Association for Computational Linguistics, Gothenburg, Sweden, April 2014.</li>
-                <li>Martin Porter, "[<a href="https://pdfs.semanticscholar.org/ca20/32154c90c85e3aac3ece5d94fd8e6cad71ce.pdf">An algorithm for suffix stripping</a>]," <i>Program</i> 14 no. 3, pp 130-137, July 1980.</li>
-            </ul>
-        </div>
+            <div class="title">
+                <p>References</p>
+            </div>
+            <div class="description">
+                <ul>
+                    <li>James Abello, Fred Hohman, Varun Bezzam, Duen Horng Chau,"[<a href = "https://fredhohman.com/papers/atlas">Atlas: Local Graph Exploration in a Global Context</a>],” in Proceedings of the International Conference on Intelligent User Interfaces, ACM 2019.</li>
+                    <li>“Graph Waves, Part I, J. Abello, Dan, Sean, Qi”, submitted for publication to IEEE Information Visualization Conference, Infovis 2019.</li>
+                    <li>Jingbo Shang, Jialu Liu, Meng Jiang, Xiang Ren, Clare R Voss, Jiawei Han, "[<a href="https://arxiv.org/abs/1702.04457">Automated Phrase Mining from Massive Text Corpora</a>]," accepted by IEEE Transactions on Knowledge and Data Engineering, Feb. 2018.</li>
+                    <li>Jialu Liu, Jingbo Shang, Chi Wang, Xiang Ren and Jiawei Han, "[<a href="http://hanj.cs.illinois.edu/pdf/sigmod15_jliu.pdf">Mining Quality Phrases from Massive Text Corpora</a>],” Proc. of 2015 ACM SIGMOD Int. Conf. on Management of Data (SIGMOD'15), Melbourne, Australia, May 2015.</li>
+                    <li>Kai Hong, Ani Nenkova, "[<a href="https://www.aclweb.org/anthology/E14-1075">Improving the Estimation of Word Importance for News Multi-Document Summarization</a>]," Proc. of the 14th Conf. of the European Chapter of the Association for Computational Linguistics, Gothenburg, Sweden, April 2014.</li>
+                    <li>Martin Porter, "[<a href="https://pdfs.semanticscholar.org/ca20/32154c90c85e3aac3ece5d94fd8e6cad71ce.pdf">An algorithm for suffix stripping</a>]," <i>Program</i> 14 no. 3, pp 130-137, July 1980.</li>
+                </ul>
+            </div>
 
-        <div class="nsf">
-            <p>Special thanks to NSF Grant CCF-182215!</p>
+            <div class="nsf">
+                <p>Special thanks to NSF Grant CCF-182215!</p>
+            </div>
         </div>
     </body>
 </html>
