@@ -35,6 +35,10 @@
     margin: 0px;
 }
 
+.about_me #about_me_para {
+    margin-top: 11px;
+}
+
 /* Adds the links container. */
 .links {
     clear: left;
