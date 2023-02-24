@@ -3,7 +3,7 @@
     background-color: #ddd;
     color: #333;
     max-width: 1250px;
-    height: 510px;
+    height: 370px;
     margin: 0px auto;
     border: 3px solid #ddd;
     overflow: auto;
@@ -14,14 +14,14 @@
 .selfie img {
     border: 1px solid #333;
     margin: 30px 30px 0px 30px;
-    height: 450px;
+    height: 310px;
     border-radius: 20px;
 }
 
 /* Handles the about me paragraph. */
 .about_me {
     margin: 30px 30px 0px 0px;
-    height: 450px;
+    height: 310px;
     text-align: justify;
     font-size: 22px;
 }
