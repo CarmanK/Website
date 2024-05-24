@@ -10,38 +10,20 @@
 }
 
 .selfie {
-    margin: 7px;
     height: 310px;
     width: 250px;
+    margin: 7px;
     border-radius: 25px;
 }
 
 .about_me {
     height: 310px;
     margin: 7px;
-    text-align: justify;
-    font-size: 22px;
-}
-
-.about_me_top_and_bottom {
-    background-color: #333;
-    color: #ddd;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin: 0px;
-}
-
-#about_me_title {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-
-#about_me_text {
-    margin: 0;
-    padding: 7px;
-    height: 256px;
-    border: 3px solid #333;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
 }
 
 .links {
