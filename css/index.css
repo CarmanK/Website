@@ -1,20 +1,19 @@
 .me {
     background-color: #ddd;
     color: #333;
-    max-width: 1250px;
+    width: 875px;
     height: 328px;
     margin: 0px auto;
     border: 3px solid #ddd;
-    overflow: auto;
     display: flex;
+    flex-direction: row;
 }
 
 .selfie {
-    border: 1px solid #333;
     margin: 7px;
     height: 310px;
     width: 250px;
-    border-radius: 20px;
+    border-radius: 25px;
 }
 
 .about_me {
@@ -24,17 +23,25 @@
     font-size: 22px;
 }
 
-.about_me #about_me_title {
+.about_me_top_and_bottom {
     background-color: #333;
     color: #ddd;
     text-align: center;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
     margin: 0px;
 }
 
-.about_me #about_me_text {
-    margin-top: 7px;
+#about_me_title {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+#about_me_text {
+    margin: 0;
+    padding: 7px;
+    height: 256px;
+    border: 3px solid #333;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .links {
@@ -43,7 +50,7 @@
     justify-content: space-evenly;
     background-color: #333;
     color: #ddd;
-    max-width: 1250px;
+    width: 875px;
     margin: 0px auto;
     border: 3px solid #ddd;
     text-align: center;
@@ -58,4 +65,8 @@
     text-decoration: none;
     padding: 0px 5px;
     margin: 0px;
+}
+
+.links div:hover {
+    color: white;
 }
