@@ -1,27 +1,25 @@
-/* Adds the about me container. */
 .me {
     background-color: #ddd;
     color: #333;
     max-width: 1250px;
-    height: 370px;
+    height: 328px;
     margin: 0px auto;
     border: 3px solid #ddd;
     overflow: auto;
     display: flex;
 }
 
-/* Defines the metrics of the image of me. */
-.selfie img {
+.selfie {
     border: 1px solid #333;
-    margin: 30px 30px 0px 30px;
+    margin: 7px;
     height: 310px;
+    width: 250px;
     border-radius: 20px;
 }
 
-/* Handles the about me paragraph. */
 .about_me {
-    margin: 30px 0px 0px 0px;
     height: 310px;
+    margin: 7px;
     text-align: justify;
     font-size: 22px;
 }
@@ -35,13 +33,14 @@
     margin: 0px;
 }
 
-.about_me #about_me_para {
-    margin-top: 11px;
+.about_me #about_me_text {
+    margin-top: 7px;
 }
 
-/* Adds the links container. */
 .links {
-    clear: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     background-color: #333;
     color: #ddd;
     max-width: 1250px;
@@ -54,7 +53,6 @@
     padding: 7px 0px;
 }
 
-/* Adjusts the text of the links. */
 .links a {
     color: inherit;
     text-decoration: none;
