@@ -1,5 +1,2 @@
-# Disclaimer
-This was my first time ever touching HTML, CSS, and JavaScript.
-
-# TODO
-* Rewrite this entire website using React
+# Website
+* Quick website I whipped up to link my resume etc.

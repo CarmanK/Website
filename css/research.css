@@ -1,7 +1,7 @@
 /* Makes only the content below the navbar scrollable */
 .scrollable-content {
     overflow-y: auto;
-    height: 95%;
+    height: 94%;
 }
 
 /* Adds the title containers. */
@@ -12,7 +12,6 @@
     margin: 0px auto;
     border-right: 3px solid #ddd;
     border-left: 3px solid #ddd;
-    font-size: 30px;
     text-align: center;
     padding: 7px 0px;
 }
@@ -32,13 +31,11 @@
     margin: 0px auto;
     border-right: 3px solid #ddd;
     border-left: 3px solid #ddd;
-    font-size: 30px;
     padding: 7px 0px;
 }
 
 /* Adjusts the text of the descriptions. */
 .description p {
-    font-size: 25px;
     text-indent: 48px;
     color: inherit;
     padding: 0px 30px;
@@ -49,7 +46,6 @@
 .description ul {
     color: inherit;
     margin: 0px 30px;
-    font-size: 25px;
 }
 
 /* Adjusts the text of the presentations content. */
@@ -67,13 +63,11 @@
     margin: 0px auto;
     border-right: 3px solid #ddd;
     border-left: 3px solid #ddd;
-    font-size: 30px;
     padding: 0px;
 }
 
 /* Adjusts the text of the progress log content. */
 .progress_log_content p {
-    font-size: 25px;
     text-indent: 48px;
     color: inherit;
     padding: 0px 30px;
@@ -94,7 +88,6 @@
     color: #ddd;
     cursor: pointer;
     transition: 0.1s;
-    font-size: 20px;
     margin: 0px 0px 7px 0px;
     padding: 7px 28px;
     outline: none;
@@ -126,7 +119,6 @@
     border-right: 3px solid #ddd;
     border-left: 3px solid #ddd;
     border-bottom: 3px solid #ddd;
-    font-size: 30px;
     text-align: center;
     padding: 7px 0px 0px 0px;
     border-bottom-left-radius: 25px;
@@ -135,7 +127,6 @@
 
 /* Adjusts the text of the nsf message. */
 .nsf p {
-    font-size: 30px;
     color: inherit;
     margin: 0px;
 }
